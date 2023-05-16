@@ -1,0 +1,61 @@
+####################################### 
+# 球球模块 [10000, 20000)
+opcode 10000 {
+    request {
+        opcode 0 : op
+    }
+    response {
+    	errorcode 0 : integer
+    }
+}
+
+create 10001 {
+    request {
+        provice    0 : integer
+        ju         1 : integer
+        overtype   2 : integer
+        sc         3 : crsc
+        sx         4 : crsx
+    }
+    response {
+        errorcode 0 : integer
+        roomid    1 : integer
+        room_max  2 : integer
+    }
+}
+
+join 30012 {
+    request {
+        roomid 0 : integer
+    }
+    response {
+        errorcode 0 : integer
+        roomid    1 : integer
+        room_max  2 : integer
+        me        3 : player
+        rule      4 : rule
+        ps        5 : *player
+        state     6 : integer
+    }
+}
+
+rejoin 20013 {
+    response {
+        errorcode 0 : integer
+        roomid    1 : integer
+        room_max  2 : integer
+        me        3 : player
+        rule      4 : rule
+        ps        5 : *player
+        state     6 : integer
+    }
+}
+
+leave 20014 {
+    request {
+        idx 0 : integer
+    }
+    response {
+        errorcode 0 : integer
+    }
+}

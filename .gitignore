@@ -1,0 +1,14 @@
+*.o
+*.a
+*.so
+*.dSYM
+.DS_Store
+*.pid
+
+/cservice
+/luaclib
+/run
+/logs
+
+/strawberry
+

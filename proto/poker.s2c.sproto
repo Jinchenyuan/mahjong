@@ -1,0 +1,158 @@
+####################################### 
+# 德州模块 [40000, 50000)
+
+# 轮到你做出选择，是出牌还是放弃
+pokertake_turn 40020 {
+    request {
+        idx       0 : integer
+        countdown 1 : integer
+    }
+    response {
+        errorcode 0 : integer
+    }
+}
+
+pokercall 40021 {
+    request {
+        idx        0 : integer
+        opcode     1 : integer
+        coin       2 : integer
+    }
+    response {
+        errorcode 0 : integer
+    }
+}
+
+# 洗牌(deprecated)
+# pokershuffle 722 {
+#     request {
+#     }
+#     response {
+#         errorcode 0 : integer
+#     }
+# }
+
+# 发牌
+pokerdeal 40023 {
+    request {
+        sblindidx  0 : integer
+        bblindidx  1 : integer
+        state      2 : string
+        perflop    3 : *perflop_card # 每个玩家两张牌
+        flop       4 : *card         # 三张
+        turn       5 : card          # 第四张
+        river      6 : card          # 第五张
+    }
+    response {
+        errorcode 0 : integer
+    }
+}
+
+# (deprecated)
+pokertake_ready 40024 {
+    request {
+        idx       0 : integer
+    }
+    response {
+        errorcode 0 : integer
+    }   
+}
+
+# (deprecated)
+pokerready 40025 {
+    request {
+        idx 0 : integer
+    }
+    response {
+        errorcode 0 : integer
+    }
+}
+
+pokerover 40026 {
+    response {
+        errorcode 0 : integer
+    }
+}
+
+# 请求确认重新开始(deprecated)
+pokertake_restart 40027 {
+    response { 
+        errorcode 0 : integer
+    }
+}
+
+pokerrestart 40028 {
+    request {
+        idx       0 : integer
+    }
+    response {
+        errorcode 0 : integer
+    }
+}
+
+# 结算
+pokersettle 40029 {
+    request {
+        settles 0 : *pokersettle
+    }
+    response {
+        errorcode 0 : integer
+    }
+}
+
+pokermatch 40030 {
+    request {
+        roomid 0 : integer
+    }
+    response {
+        errorcode 0 : integer
+    }
+}
+
+pokerrejoin 40031 {
+    request {
+        p 0 : pokerplayer
+    }
+    response {
+        errorcode 0 : integer
+    }
+}
+
+pokerjoin 40032 {
+    request {
+        p 0 : pokerplayer
+    }
+    response {
+        errorcode 0 : integer
+    }
+}
+
+pokerleave 40033 {
+    request {
+        idx       0 : integer
+    }
+    response {
+        errorcode 0 : integer
+    }
+}
+
+pokersitdown 40034 {
+    request {
+        idx       0 : integer
+    }
+    response {
+        errorcode 0 : integer
+    }   
+}
+
+pokerstandup 40035 {
+    request {
+        idx       0 : integer
+    }
+    response {
+        errorcode 0 : integer
+    }   
+}
+
+# 德州模块结束
+####################################### 
